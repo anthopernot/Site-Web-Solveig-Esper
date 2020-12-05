@@ -1,0 +1,158 @@
+{% extends 'body.twig' %}
+
+{% block title %}Account{% endblock %}
+
+{% block content %}
+
+    <div class="container about-custom" id="container">
+
+        <div class="row mb-2">
+            <div class="col-sm-12 mx-auto text-center font-weight-bold">
+                <div class="title-custom">ACCOUNT</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="justify-content-center mx-auto">
+                <div class="form-group mt-5 text-center">
+                    <button type="button" class="buttonSend button1 input-send py-3" data-toggle="modal" data-target="#modalEmail" style="font-size: 25px">UPDATE EMAIL</button>
+                </div>
+
+                <div class="form-group mt-5 text-center">
+                    <button type="button" class="buttonSend button1 input-send py-3" data-toggle="modal" data-target="#modalPseudo" style="font-size: 25px">UPDATE PSEUDO</button>
+                </div>
+
+                <div class="form-group mt-5 mb-4 text-center">
+                    <button type="button" class="buttonSend button1 input-send py-3" data-toggle="modal" data-target="#modalPassword" style="font-size: 25px">UPDATE PASSWORD</button>
+                </div>
+
+                <form action="{{ path_for('logout') }}" method="post">
+
+                    {{ csrf() | raw }}
+
+                    <div class="form-group mt-5 text-center">
+                        <button type="submit" class="buttonLogout input-send py-3" style="font-size: 25px">LOGOUT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalEmail" tabindex="-1" aria-labelledby="modalEmailLabel" aria-hidden="true">
+        <form action="{{ path_for('updateMail') }}" method="post">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold font-raleway" id="modalEmailLabel">UPDATE EMAIL</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3 text-center">
+                                <label for="mail">Email</label>
+                                <input type="email" name="mail" class="input-custom text-center" id="mail" value="{{ auth.user.mail }}">
+                            </div>
+                        </div>
+                        <div class="form-row text-center">
+                            <div class="col-md-12 mb-3 text-center">
+                                <label for="email_pseudo">Password</label>
+                                <input type="password" name="password" class="input-custom text-center" id="email_pseudo">
+                            </div>
+                        </div>
+                    </div>
+
+                    {{ csrf() | raw }}
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark font-weight-bold" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-dark font-weight-bold">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="modalPseudo" tabindex="-1" aria-labelledby="modalPseudoLabel" aria-hidden="true">
+        <form action="{{ path_for('updatePseudo') }}" method="post">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold font-raleway" id="modalPseudoLabel">UPDATE PSEUDO</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3 text-center">
+                                <label for="pseudo">Pseudo</label>
+                                <input type="text" name="pseudo" class="input-custom text-center" id="pseudo" value="{{ auth.user.pseudo }}">
+                            </div>
+                        </div>
+                        <div class="form-row text-center">
+                            <div class="col-md-12 mb-3 text-center">
+                                <label for="mdp_pseudo">Password</label>
+                                <input type="password" name="password" class="input-custom text-center" id="mdp_pseudo">
+                            </div>
+                        </div>
+                    </div>
+
+                    {{ csrf() | raw }}
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark font-weight-bold" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-dark font-weight-bold">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal fade" id="modalPassword" tabindex="-1" aria-labelledby="modalPasswordLabel" aria-hidden="true">
+        <form action="{{ path_for('updatePassword') }}" method="post">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title font-weight-bold font-raleway" id="modalPasswordLabel">UPDATE PASSWORD</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="col-md-12 mb-3 text-center">
+                                <label for="pseudo">Password</label>
+                                <input type="password" name="actual_password" class="input-custom text-center" id="mdp">
+                            </div>
+                        </div>
+                        <div class="form-row text-center">
+                            <div class="col-md-6 mb-3">
+                                <label for="pseudo">New password</label>
+                                <input type="password" name="newpassword" class="input-custom text-center" id="new_mdp">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="mail">Password confirmed</label>
+                                <input type="password" name="conf_newpassword" class="input-custom text-center" id="conf_new_mdp">
+                            </div>
+                        </div>
+                    </div>
+
+                    {{ csrf() | raw }}
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark font-weight-bold" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-dark font-weight-bold">Save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{{ base_url() }}/public/js/contact.js"></script>
+{% endblock %}

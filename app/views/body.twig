@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Anthony Pernot">
+    
+
+    <meta property="og:site_name" content="Solveig Esper" />
+    <meta property="og:title" content="Solveig Esper - Book" />
+    <meta property="og:description" content="An student in creation and design at Sup de pub." />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="profile" />
+    <meta property="profile:first_name" content="Solveig" />
+    <meta property="profile:last_name" content="Esper" />
+    <meta property="profile:gender" content="female" />
+    <meta property="og:url" content="https://solveigesper.fr" />
+
+    {% block stylesheets %}{% endblock %}
+    <title>Solveig Esper | {% block title %}Accueil{% endblock %}</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ base_url() }}/public/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/public/css/app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400&display=swap" rel="stylesheet">
+    <link href="{{ base_url() }}/public/css/all.css" rel="stylesheet">
+</head>
+<body>
+
+<main>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white">
+        <a class="navbar-brand ml-3" href="{{ path_for('home') }}">Solveig Esper</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto"></ul>
+            <div class="button">
+                <a href="{{ path_for('work') }}" class="text-decoration-none">
+                    <div class="form-inline my-2 my-lg-0">
+                        <div class="text-dark pl-3 mr-5 mt-1">
+                            Work
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="button">
+                <a href="https://www.instagram.com/solveig.esper/" target="_blank" class="text-decoration-none">
+                    <div class="form-inline my-2 my-lg-0">
+                        <div class="text-dark pl-2 pr-2 mr-5 mt-1">
+                            Instagram
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="button">
+                <a href="{{ path_for('about') }}" class="text-decoration-none">
+                    <div class="form-inline my-2 my-lg-0">
+                        <div class="text-dark pl-3 mr-5 mt-1">
+                            About
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="button">
+                <a href="{{ path_for('contact') }}" class="text-decoration-none">
+                    <div class="form-inline my-2 my-lg-0">
+                        <div class="text-dark pl-2 mr-5 mt-1">
+                            CONTACT
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% if auth.check == true %}
+                <div class="button">
+                    <a href="{{ path_for('showAccount') }}" class="text-decoration-none">
+                        <div class="form-inline my-2 my-lg-0">
+                            <div class="text-dark pl-2 mr-5 mt-1">
+                                ACCOUNT
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
+
+        </div>
+    </nav>
+
+    {% include "flash.twig" %}
+
+    {% block content %}{% endblock %}
+
+    <footer class="sticky-footer fixed-bottom bg-none footer-custom">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto pt-1">
+                <span>Copyright &copy; Solveig Esper | <span id="date"></span></span>
+            </div>
+        </div>
+    </footer>
+
+</main>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="{{ base_url() }}/public/js/bootstrap.bundle.js"></script>
+<script src="{{ base_url() }}/public/js/bootstrap.js"></script>
+<script src="{{ base_url() }}/public/js/app.js"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

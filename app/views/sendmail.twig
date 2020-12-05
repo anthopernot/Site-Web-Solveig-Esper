@@ -1,0 +1,69 @@
+{% extends 'body.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+
+    <div class="container about-custom" id="container">
+
+
+        <div class="row mb-2 mx-auto">
+            <div class="col-sm-12 text-center font-weight-bold">
+                <div class="title-custom">CONTACT</div>
+            </div>
+        </div>
+
+        <div class="row mx-auto">
+
+            <div class="col-sm-12 mb-5 text-center">
+                You can send me <br>
+                a mail at {{ user.mail }} with this form.
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="justify-content-center mx-auto">
+                <form method="POST" action="{{ path_for('sendMail') }}" class="ml-4 mr-4 mb-2" id="form">
+                    <div class="form-row">
+                        <div class="form-group col-md-6 text-center" id="name">
+                            <label for="inputName">NAME</label><br>
+                            <input type="text" class="input-custom text-center" name="name" id="inputName" required>
+                        </div>
+                        <div class="form-group col-md-6 text-center" id="firstName">
+                            <label for="inputFirstname">FIRST NAME</label>
+                            <input type="text" class="input-custom text-center" id="inputFirstname" name="firstname" required>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2 text-center" id="mail">
+                        <label for="inputAddress">MAIL</label><br>
+                        <input type="email" class="input-custom text-center" id="inputAddress" name="mail" required>
+                    </div>
+                    <div class="form-group mt-2 text-center">
+                        <label for="inputAddress2">SUBJECT</label><br>
+                        <input type="text" class="input-custom text-center" id="inputAddress2" name="subject" required>
+                    </div>
+                    <div class="form-group mt-2 text-center">
+                        <label>MESSAGE</label><br>
+                        <textarea id="validationTextarea" class="input-custom" name="message" required></textarea>
+                    </div>
+
+                    {{ csrf() | raw }}
+
+                    <div class="form-group mt-5 text-center">
+                        <button type="submit" class="btn buttonSend button1 input-send py-3" style="font-size: 25px">SEND</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="{{ base_url() }}/public/js/contact.js"></script>
+{% endblock %}

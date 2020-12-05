@@ -1,0 +1,40 @@
+{% extends 'body.twig' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+
+    <div class="container about-custom" id="container">
+
+        <div class="row mt-4 mb-2" id="aboutTitle">
+            <div class="col-sm-12 mx-auto text-center font-weight-bold">
+                <div class="title-custom">ABOUT</div>
+            </div>
+        </div>
+
+        <div class="row mx-auto mb-4">
+
+            <div class="col-sm-4 mx-auto font-weight-bold blocAbout1-custom">
+
+                Esper Solveig <br>
+                <a href="mailto:solveigesper@live.fr" class="text-dark" target="_blank">{{ user.mail }}</a><br>
+                +33 605439397<br>
+                <a href="https://www.instagram.com/solveig.esper/" class="text-dark" target="_blank">@solveig.esper</a><br>
+                <a href="https://solveigphotographie.tumblr.com/" class="text-dark" target="_blank"> https://solveigphotographie.tumblr.com/</a>
+
+            </div>
+
+            <div class="col-sm-4 mx-auto about-text-custom blocAbout2-custom" id="description">
+                Solveig Esper is a Still life photographer and a student in Creation and Design. Currently, she lives in France and she studies at Sup de pub, a communication school.  Her artistic approach aims to show the beauty of the world.
+                She wants to highlight everything that we no longer take the time to watch. Through this work she invites us to appreciate the perfection and dream with.
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ base_url() }}/public/js/about.js"></script>
+{% endblock %}

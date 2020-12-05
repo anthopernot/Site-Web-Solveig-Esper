@@ -1,0 +1,53 @@
+{% extends 'body.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+        <div class="container-fluid">
+
+            <div class="home">
+
+                <div class="row mx-auto" id="imgAbout">
+
+                    <div id="carouselExampleSlidesOnly" class="carousel slide carousel-custom mx-auto" data-ride="carousel">
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <div class="row" style="height: 1000px; max-height : 100%" id="imgSlide">
+                                    <div class="col-6 col-custom">
+                                        <img src="{{ base_url() }}/public/img/for.jpg" class="d-block w-100 h-90" alt="..." style="height: 100%">
+                                    </div>
+                                    <div class="col-6 col-custom">
+                                        <img src="{{ base_url() }}/public/img/acier.jpg" class="d-block w-100 h-90" alt="..." style="height: 100%">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row" style="height: 1000px; max-height : 100%" id="imgSlide">
+                                    <img src="{{ base_url() }}/public/img/alp.jpg" class="d-block w-100 h-90" alt="...">
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="row" style="height: 1000px; max-height : 100%" id="imgSlide">
+                                    <img src="{{ base_url() }}/public/img/bois.jpg" class="d-block w-100 h-90" alt="...">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ base_url() }}/public/js/home.js"></script>"
+{% endblock %}
